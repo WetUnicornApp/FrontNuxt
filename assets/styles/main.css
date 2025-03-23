@@ -1,0 +1,31 @@
+@import "../styles/theme.css";
+
+* {
+  margin: unset;
+  padding: unset;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text);
+}
+
+input {
+  color: var(--c-text);
+}
+
+.bg-1 {
+  background-color: var(--c-bg);
+}
+
+.bg-2 {
+  background-color: var(--c-bg-2);
+}
+
+.icon {
+  color: var(--c-text);
+}
+.icon.--btn:hover,
+.icon.--active {
+  color: var(--c-accent);
+}

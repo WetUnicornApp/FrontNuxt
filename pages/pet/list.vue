@@ -1,3 +1,3 @@
 <template>
-  <div>f</div>
+  <div></div>
 </template>

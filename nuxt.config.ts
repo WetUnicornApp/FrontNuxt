@@ -15,6 +15,6 @@ export default defineNuxtConfig({
   ],
 
   i18n: {
-    vueI18n: "./lang/i18n.config.ts",
+    vueI18n: "./assets/lang/i18n.config.ts",
   },
 });

@@ -1,3 +1,5 @@
+<script></script>
+
 <template>
-  <div class="bg-danger p-5">bootstrap test</div>
+  <div class=""></div>
 </template>

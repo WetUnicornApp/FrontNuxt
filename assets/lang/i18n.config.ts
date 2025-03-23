@@ -1,5 +1,5 @@
-import pl from "@/lang/pl-PL.json";
-import en from "@/lang/en-EN.json";
+import pl from "@/assets/lang/pl-PL.json";
+import en from "@/assets/lang/en-EN.json";
 export default {
   legacy: false,
   locale: "pl",

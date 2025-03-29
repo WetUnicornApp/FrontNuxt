@@ -37,27 +37,29 @@ const bottomList = [
     <div class="h-100 bg-2 p-2 d-flex flex-column justify-content-between">
       <div class="">
         <div v-for="item in topList" :key="item.index">
-          <nuxt-link :to="item.path"
-            ><Icon :name="item.icon" class="icon --btn fs-3 my-1"
-          /></nuxt-link>
+          <nuxt-link :to="item.path" active-class="active-link">
+            <Icon :name="item.icon" class="icon --btn fs-3 my-1 --a-increase" />
+          </nuxt-link>
         </div>
       </div>
       <div class="flex-fill d-flex flex-column justify-content-center">
         <div v-for="item in midList" :key="item.index" class="">
-          <nuxt-link :to="item.path"
-            ><Icon :name="item.icon" class="icon --btn fs-3 my-1"
-          /></nuxt-link>
+          <nuxt-link :to="item.path" active-class="active-link">
+            <Icon :name="item.icon" class="icon --btn fs-3 my-1 --a-increase" />
+          </nuxt-link>
         </div>
       </div>
       <div class="">
         <div v-for="item in bottomList" :key="item.index">
-          <nuxt-link :to="item.path"
-            ><Icon :name="item.icon" class="icon --btn fs-3 my-1"
-          /></nuxt-link>
+          <nuxt-link :to="item.path" active-class="active-link">
+            <Icon :name="item.icon" class="icon --btn fs-3 my-1 --a-increase" />
+          </nuxt-link>
         </div>
       </div>
     </div>
-    <div class="flex-fill h-100"><slot /></div>
+    <div class="flex-fill h-100">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -65,5 +67,11 @@ const bottomList = [
 #layout-default-main {
   height: 100vh;
   width: 100vw;
+}
+
+.router-link-exact-active > span {
+  color: var(--c-accent);
+  border-radius: 8px;
+  font-weight: bold;
 }
 </style>

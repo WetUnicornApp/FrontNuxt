@@ -7,11 +7,18 @@ definePageMeta({
 
 const login = () => {
   console.log("zalogowano się");
+
+  // const res = await $fetch('/api/submit', {
+  //   method: 'POST',
+  //   body: {
+  //     // My form data
+  //   }
+  // })
 };
 </script>
 
 <template>
-  <div class="bg-2 p-4 rounded-4">
+  <form class="bg-2 p-4 rounded-4">
     <div class="my-4">
       <h2 class="text-center">{{ $t("LOGIN") }}</h2>
     </div>
@@ -30,11 +37,6 @@ const login = () => {
         class="my-3"
       />
     </div>
-    <ButtonsBasic
-      title="SEND"
-      :action="login"
-      type="accent"
-      class="d-flex justify-content-end mt-4"
-    />
-  </div>
+    <ButtonsSave />
+  </form>
 </template>

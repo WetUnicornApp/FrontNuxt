@@ -31,5 +31,7 @@
   "BASIC": "Podstawowe",
   "ADD_PET": "Dodaj zwierzaka",
   "EDIT_ACCOUNT": "Edytuj konto",
-  "SEND": "Wyślij"
+  "SEND": "Wyślij",
+  "SETTING": "Ustawienia",
+  "CHANGE_PASSWORD": "Zmień hasło"
 }

@@ -1,6 +1,8 @@
 @import "../styles/theme.css";
+@import "../styles/animations.css";
 
-* {
+*,
+p {
   margin: unset;
   padding: unset;
 }
@@ -21,11 +23,18 @@ input {
 .bg-2 {
   background-color: var(--c-bg-2);
 }
+.bg-accent {
+  background-color: var(--c-accent);
+}
 
 .icon {
   color: var(--c-text);
 }
 .icon.--btn:hover,
 .icon.--active {
+  color: var(--c-accent);
+}
+a:hover,
+a > *:hover {
   color: var(--c-accent);
 }

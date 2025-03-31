@@ -38,3 +38,23 @@ a:hover,
 a > *:hover {
   color: var(--c-accent);
 }
+
+.border-light {
+  border: 0.1px solid var(--c-text);
+}
+
+.border-light-start {
+  border-left: 0.1px solid var(--c-text);
+}
+
+.border-light-end {
+  border-right: 0.1px solid var(--c-text);
+}
+
+.border-light-top {
+  border-top: 0.1px solid var(--c-text);
+}
+
+.border-light-bottom {
+  border-bottom: 0.1px solid var(--c-text);
+}

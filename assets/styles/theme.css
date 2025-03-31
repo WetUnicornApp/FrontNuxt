@@ -3,15 +3,19 @@
   --c-grey-2: #2b2b2b;
   --c-grey-3: #9e9d9d;
   --c-grey-4: #dddddd;
+  --c-grey-5: #242424b7;
   --c-violet-1: #358680;
+  --c-violet-2: #35868015;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --c-bg: var(--c-grey-1);
     --c-bg-2: var(--c-grey-2);
+    --c-bg-3: var(--c-grey-5);
     --c-text: var(--c-grey-3);
     --c-accent: var(--c-violet-1);
+    --c-accent-bg: var(--c-violet-2);
   }
 }
 
@@ -19,7 +23,9 @@
   :root {
     --c-bg: var(--c-grey-3);
     --c-bg-2: var(--c-grey-4);
+    --c-bg-3: var(--c-grey-3);
     --c-text: var(--c-grey-1);
     --c-accent: var(--c-violet-1);
+    --c-accent-bg: var(--c-violet-1);
   }
 }

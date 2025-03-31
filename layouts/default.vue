@@ -67,6 +67,7 @@ const bottomList = [
 #layout-default-main {
   height: 100vh;
   width: 100vw;
+  /* overflow-y: hidden; */
 }
 
 .router-link-exact-active > span {

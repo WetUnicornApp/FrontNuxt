@@ -1,7 +1,7 @@
 export interface ButtonType {
   title: string;
   id?: string;
-  action: (params?: Object) => void;
+  action: (params?: object) => object | null;
   type: "accent";
   form?: boolean;
 }

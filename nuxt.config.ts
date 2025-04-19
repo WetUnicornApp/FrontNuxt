@@ -17,4 +17,13 @@ export default defineNuxtConfig({
   i18n: {
     vueI18n: "./assets/lang/i18n.config.ts",
   },
+  nitro: {
+    devProxy: {
+      '/api': {
+        target: 'http://127.0.0.1:5000',
+        changeOrigin: true,
+        prependPath: true
+      }
+    }
+  }
 });

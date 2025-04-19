@@ -7,4 +7,6 @@ export interface InputType {
   value?: string;
   icon?: string;
   label?: string;
+  required?: boolean
+  modelValue: string;
 }

@@ -1,42 +1,42 @@
 <script setup lang="ts">
-// import { useI18n } from "vue-i18n";
+import '@/components/buttons/send';
+import type { RegisterModel } from '~/models/user-models/register';
 
 definePageMeta({
   layout: "logout",
 });
 
-const login = () => {
-  console.log("zalogowano się");
+const Register = ref<RegisterModel>({
+  email: '',
+  password: ''
+});
 
-  // const res = await $fetch('/api/submit', {
-  //   method: 'POST',
-  //   body: {
-  //     // My form data
-  //   }
-  // })
+const login = async () => {
+  const form = document.getElementById('page-user-register-form') as HTMLFormElement;
+  form.reportValidity()
+  const res = await $fetch('/api/user/register', {
+    method: 'POST',
+    // body: {
+    //   // My form data
+    // }
+  })
+
+  console.log(Register.value);
+  return null;
 };
 </script>
 
 <template>
-  <form class="bg-2 p-4 rounded-4">
+  <form id="page-user-register-form" class="bg-2 p-4 rounded-4">
     <div class="my-4">
       <h2 class="text-center">{{ $t("REGISTER") }}</h2>
     </div>
     <div>
-      <InputsBasic
-        type="email"
-        name="email"
-        icon="material-symbols:alternate-email-rounded"
-        label="EMAIL"
-      />
-      <InputsBasic
-        type="password"
-        name="password"
-        icon="material-symbols:lock"
-        label="PASSWORD"
-        class="my-3"
-      />
+      <InputsBasic v-model="Register.email" type="email" name="email" icon="material-symbols:alternate-email-rounded"
+        label="EMAIL" :required="true" />
+      <InputsBasic v-model="Register.password" type="password" name="password" icon="material-symbols:lock"
+        label="PASSWORD" class="my-3" :required="true" />
     </div>
-    <ButtonsSave />
+    <ButtonsSend :action="login" />
   </form>
 </template>

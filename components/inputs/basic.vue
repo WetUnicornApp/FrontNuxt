@@ -21,12 +21,12 @@ const updateValue = (event: Event) => {
         <Icon :name="props.icon" class="my-auto h-100 me-2" />
       </div>
       <input :id="props.name" :type="props.type" :name="props.name" :placeholder="props.placeholder"
-        :value="props.modelValue" :required="props.required ?? false" class="bg-1 border-0 p-2 rounded-end-2"
+        :value="props.modelValue" :required="props.required ?? false" class="bg-1 border-0 p-2 rounded-end-2 flex-fill"
         @input="updateValue">
     </div>
     <div v-else>
       <input :id="props.name" :type="props.type" :name="props.name" :placeholder="props.placeholder"
-        :value="props.modelValue" :required="props.required ?? false" class="bg-1 border-0 p-2 rounded-2"
+        :value="props.modelValue" :required="props.required ?? false" class="bg-1 border-0 p-2 rounded-2 flex-fill"
         @input="updateValue">
     </div>
   </div>

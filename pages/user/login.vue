@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import '@/components/buttons/send';
+import { useAuth } from '~/composables/useAuth';
 import { Empty, type LoginModel } from '~/models/user-models/login';
 import type { ApiResponse } from '~/types/responses/api-response';
 import type { LoginResponse } from '~/types/responses/login-response';
@@ -13,13 +14,19 @@ const loginData = ref<LoginModel>(Empty);
 const processLogin = async () => {
   const form = document.getElementById('page-user-login-form') as HTMLFormElement;
   form.reportValidity()
-  const res = await $fetch<ApiResponse<LoginResponse>>('/api/user/login', {
-    method: 'POST',
-    body: loginData.value
-  });
-  if (res.success) {
+  // const res = await $fetch<ApiResponse<LoginResponse>>('/api/user/login', {
+  //   method: 'POST',
+  //   body: loginData.value
+  // });
+  // if (res.success) {
+  const { login } = useAuth()
+  const res = await login(loginData.value.email, loginData.value.password)
+  console.log(res);
+  if (res) {
     navigateTo('/')
   }
+
+  // }
   return null;
 };
 </script>

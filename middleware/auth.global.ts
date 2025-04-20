@@ -1,16 +1,16 @@
 export default defineNuxtRouteMiddleware((to) => {
-    const user = useState('user');
+    const user = useCookie('user')
 
-    const publicPages = ['/user/login', '/user/login'];
+    // Lista publicznych ścieżek (nie wymagają logowania)
+    const publicPaths = ['/user/login', '/user/register']
 
-    const isPublic = publicPages.includes(to.path);
-    const isAuthenticated = !!user.value;
+    // Jeśli strona jest publiczna — zezwól
+    if (publicPaths.includes(to.path)) return
 
-    if (!isAuthenticated && !isPublic) {
-        return navigateTo('/user/login');
+
+
+    // Jeśli użytkownik nie jest zalogowany — przekieruj do /user/login
+    if (!user.value) {
+        return navigateTo('/user/login')
     }
-
-    if (isAuthenticated && isPublic) {
-        return navigateTo('/');
-    }
-});
+})

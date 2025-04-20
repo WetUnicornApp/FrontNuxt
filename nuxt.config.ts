@@ -25,5 +25,11 @@ export default defineNuxtConfig({
         prependPath: true
       }
     }
+  },
+  icon: {
+    provider: 'iconify', // <--- TO JEST KLUCZOWE
+    aliases: {
+      'material-symbols': 'material-symbols',
+    }
   }
 });

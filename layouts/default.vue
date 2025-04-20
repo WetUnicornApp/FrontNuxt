@@ -70,7 +70,7 @@ const bottomList = [
   /* overflow-y: hidden; */
 }
 
-.router-link-exact-active > span {
+.router-link-exact-active>span {
   color: var(--c-accent);
   border-radius: 8px;
   font-weight: bold;

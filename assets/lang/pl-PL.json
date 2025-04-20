@@ -36,5 +36,8 @@
   "SEND": "Wyślij",
   "SETTING": "Ustawienia",
   "CHANGE_PASSWORD": "Zmień hasło",
-  "VISITS": "Wizyty"
+  "VISITS": "Wizyty",
+  "HOME": "Strona główna",
+  "PETS": "Zwierzaki",
+  "ACCOUNT": "Konto"
 }

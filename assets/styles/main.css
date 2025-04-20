@@ -23,6 +23,7 @@ input {
 .bg-2 {
   background-color: var(--c-bg-2);
 }
+
 .bg-accent {
   background-color: var(--c-accent);
 }
@@ -30,12 +31,14 @@ input {
 .icon {
   color: var(--c-text);
 }
+
 .icon.--btn:hover,
 .icon.--active {
   color: var(--c-accent);
 }
+
 a:hover,
-a > *:hover {
+a>*:hover {
   color: var(--c-accent);
 }
 
@@ -57,4 +60,8 @@ a > *:hover {
 
 .border-light-bottom {
   border-bottom: 0.1px solid var(--c-text);
+}
+
+.cr-pointer {
+  cursor: pointer;
 }

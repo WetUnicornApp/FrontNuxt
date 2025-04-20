@@ -23,13 +23,23 @@ const bottomList = [
     icon: "material-symbols:person",
     name: "ACCOUNT",
   },
-  {
-    index: 1,
-    path: "/user/setting",
-    icon: "material-symbols:settings-heart",
-    name: "SETTING",
-  },
+  // {
+  //   index: 1,
+  //   path: "/user/setting",
+  //   icon: "material-symbols:settings-heart",
+  //   name: "SETTING",
+  // },
 ];
+
+const listItem = [{
+  title: "LOGOUT",
+  action: () => {
+    const { logout } = useAuth();
+    logout()
+  }
+}
+];
+
 </script>
 
 <template>
@@ -55,6 +65,7 @@ const bottomList = [
             <Icon :name="item.icon" class="icon --btn fs-3 my-1 --a-increase" />
           </nuxt-link>
         </div>
+        <DropdownsWithIcon title="SETTING" :list_item="listItem" icon="material-symbols:settings-heart" />
       </div>
     </div>
     <div class="flex-fill h-100">

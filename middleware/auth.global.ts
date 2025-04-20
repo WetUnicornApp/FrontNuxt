@@ -7,7 +7,9 @@ export default defineNuxtRouteMiddleware((to) => {
     // Jeśli strona jest publiczna — zezwól
     if (publicPaths.includes(to.path)) return
 
-
+    if (user.value && publicPaths.includes(to.path)) {
+        return navigateTo('/') // albo np. do dashboarda
+    }
 
     // Jeśli użytkownik nie jest zalogowany — przekieruj do /user/login
     if (!user.value) {

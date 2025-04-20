@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     }
   },
   icon: {
-    provider: 'iconify', // <--- TO JEST KLUCZOWE
+    provider: 'iconify',
     aliases: {
       'material-symbols': 'material-symbols',
     }

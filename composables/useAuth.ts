@@ -1,18 +1,20 @@
+import type { ApiResponse } from "~/types/responses/api-response";
+import type { LoginResponse } from '../types/responses/login-response';
+
 export const useAuth = () => {
-    const user = useCookie('user', { default: () => null })
-
-    const login = async (email: string, password: string) => {
+    const user = useCookie<LoginResponse | null>('user', {
+        default: () => null
+    })
+    const login = async (data: string) => {
+        console.log(data)
         try {
-            const { data, error } = await useFetch('/api/user/login', {
+
+            const res = await $fetch<ApiResponse<LoginResponse>>('/api/user/login', {
                 method: 'POST',
-                body: { email, password }
-            })
+                body: data
+            });
 
-            if (error.value || !data.value?.success) {
-                throw new Error('Nieprawidłowe dane logowania')
-            }
-
-            user.value = data.value.data
+            user.value = res.data
             return true
         } catch (err) {
             console.error(err)

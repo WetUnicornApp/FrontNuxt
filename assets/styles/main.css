@@ -24,6 +24,10 @@ input {
   background-color: var(--c-bg-2);
 }
 
+.bg-3 {
+  background-image: var(--c-grad-1);
+}
+
 .bg-accent {
   background-color: var(--c-accent);
 }
@@ -35,6 +39,10 @@ input {
 .icon.--btn:hover,
 .icon.--active {
   color: var(--c-accent);
+}
+
+a {
+  color: var(--c-text);
 }
 
 a:hover,

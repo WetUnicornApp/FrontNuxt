@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-const method = (params: Object) => {
+const method = (params: object) => {
   console.log(params);
+  return null
 };
 </script>
 
@@ -16,11 +17,7 @@ const method = (params: Object) => {
       </div>
       <div class="row">
         <div class="col-md-6">
-          <ButtonsWide
-            :title="$t('CHANGE_PASSWORD')"
-            :action="() => method({ type: 'password' })"
-            type="accent"
-          ></ButtonsWide>
+          <ButtonsWide :title="$t('CHANGE_PASSWORD')" :action="() => method({ type: 'password' })" type="accent" />
         </div>
       </div>
     </div>

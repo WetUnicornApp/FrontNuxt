@@ -18,7 +18,7 @@ const method = async (event: Event) => {
   }
 };
 
-const computedClass = `${props.type} rounded border-0 px-3 py-2 fw-bold`;
+const computedClass = `${props.type} rounded border-0 px-3 py-2 fw-bold --a-increase`;
 </script>
 
 <template>
@@ -33,6 +33,11 @@ const computedClass = `${props.type} rounded border-0 px-3 py-2 fw-bold`;
 <style scoped>
 .accent {
   background-color: var(--c-accent);
+  color: var(--c-text);
+}
+
+.gradient {
+  background-image: var(--c-grad-1);
   color: var(--c-text);
 }
 

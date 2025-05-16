@@ -31,5 +31,10 @@ export default defineNuxtConfig({
     aliases: {
       'material-symbols': 'material-symbols',
     }
-  }
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: 'http://127.0.0.1:5000'
+    }
+  },
 });

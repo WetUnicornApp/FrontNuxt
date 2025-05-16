@@ -28,16 +28,21 @@ const processLogin = async () => {
 </script>
 
 <template>
-  <form id="page-user-login-form" class="bg-2 p-4 rounded-4">
-    <div class="my-4">
-      <h2 class="text-center">{{ $t("LOGIN") }}</h2>
+  <div>
+    <form id="page-user-login-form" class="bg-2 p-4 rounded-4">
+      <div class="my-4">
+        <h2 class="text-center">{{ $t("LOGIN") }}</h2>
+      </div>
+      <div class="m-md-3">
+        <InputsBasic v-model="loginData.email" type="email" name="email" icon="material-symbols:alternate-email-rounded"
+          label="EMAIL" :required="true" />
+        <InputsBasic v-model="loginData.password" type="password" name="password" icon="material-symbols:lock"
+          label="PASSWORD" class="my-3" :required="true" />
+      </div>
+      <ButtonsSend :action="processLogin" />
+    </form>
+    <div class="d-flex justify-content-end my-2">
+      <nuxt-link to="/user/register" class="">{{ $t('CREATE_ACCOUNT') }}</nuxt-link>
     </div>
-    <div class="m-md-3">
-      <InputsBasic v-model="loginData.email" type="email" name="email" icon="material-symbols:alternate-email-rounded"
-        label="EMAIL" :required="true" />
-      <InputsBasic v-model="loginData.password" type="password" name="password" icon="material-symbols:lock"
-        label="PASSWORD" class="my-3" :required="true" />
-    </div>
-    <ButtonsSend :action="processLogin" />
-  </form>
+  </div>
 </template>

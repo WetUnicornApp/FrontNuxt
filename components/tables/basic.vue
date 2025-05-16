@@ -1,65 +1,40 @@
-<template>
-  <ag-grid-vue
-    class="unicorn-custom-ag-theme"
-    :columnDefs="columnDefs"
-    :rowData="rowData"
-    :defaultColDef="defaultColDef"
-  >
-  </ag-grid-vue>
-</template>
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { AgGridVue } from 'ag-grid-vue3';
+defineExpose({});
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, watch } from "vue";
-import { AgGridVue } from "ag-grid-vue3";
-import {
-  AllCommunityModule,
-  ModuleRegistry,
-  type ColDef,
-} from "ag-grid-community";
+const props = defineProps<{
+  columnDefs: ColDef[];
+  dataEndpoint: string;
+}>();
 
-ModuleRegistry.registerModules([AllCommunityModule]);
+// Rejestracja komponentu
+// const components = { AgGridVue };
 
-export default defineComponent({
-  name: "UnicornGrid",
-  components: { AgGridVue },
-  props: {
-    columnDefs: {
-      type: Array as () => ColDef[],
-      required: true,
-    },
-    dataEndpoint: {
-      type: String,
-      required: true,
-    },
-  },
-  setup(props) {
-    const rowData = ref([]);
-    const defaultColDef = {
-      flex: 1,
-    };
+const rowData = ref<unknown[]>([]);
+const defaultColDef = {
+  flex: 1,
+};
 
-    const fetchData = async () => {
-      try {
-        const response = await fetch(props.dataEndpoint);
-        if (!response.ok) throw new Error("Cannot fetch data from API");
-        rowData.value = await response.json();
-      } catch (error) {
-        console.error("Error:", error);
-        rowData.value = [];
-      }
-    };
+const config = useRuntimeConfig();
 
-    onMounted(fetchData);
-
-    watch(() => props.dataEndpoint, fetchData);
-
-    return {
-      rowData,
-      defaultColDef,
-    };
-  },
+onMounted(async () => {
+  try {
+    const res = await $fetch<ApiResponse<unknown>>(config.public.apiBase + props.dataEndpoint, {
+      method: 'GET',
+    });
+    rowData.value = res.success ? (res.data as unknown[]) : [];
+  } catch (error) {
+    console.error(error);
+    rowData.value = [];
+  }
 });
 </script>
+
+<template>
+  <ag-grid-vue class="unicorn-custom-ag-theme ag-theme-alpine" :column-defs="props.columnDefs" :row-data="rowData"
+    :default-col-def="defaultColDef" style="width: 100%; height: 90vh" />
+</template>
 
 <style>
 .ag-root-wrapper,
@@ -74,14 +49,12 @@ export default defineComponent({
   font-weight: bold;
   border-bottom: 0.1px solid var(--c-text);
 }
+
 .unicorn-custom-ag-theme {
   height: 90vh;
 }
+
 .ag-row {
   border-bottom: 0.1px solid var(--c-bg-2);
 }
-
-/* .unicorn-custom-ag-theme .ag-row {} */
-/* .unicorn-custom-ag-theme .ag-row:nth-child(even) {} */
-/* .unicorn-custom-ag-theme {} */
 </style>

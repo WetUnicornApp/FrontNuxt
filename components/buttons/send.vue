@@ -7,5 +7,5 @@ const props = defineProps<{ action: (params?: object) => object | null }>();
 
 
 <template>
-  <ButtonsBasic title="SEND" :action="props.action" type="accent" class="d-flex justify-content-end mt-4" />
+  <ButtonsBasic title="SEND" :action="props.action" type="gradient" class="d-flex justify-content-end mt-4" />
 </template>

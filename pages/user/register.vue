@@ -12,7 +12,8 @@ const Register = ref<RegisterModel>(Empty);
 const login = async () => {
   const form = document.getElementById('page-user-register-form') as HTMLFormElement;
   form.reportValidity()
-  const res = await $fetch<ApiResponse<RegisterModel>>('/api/user/register', {
+  const config = useRuntimeConfig();
+  const res = await $fetch<ApiResponse<RegisterModel>>(config.public.apiBase + '/user/register', {
     method: 'POST',
     body: Register.value
   });

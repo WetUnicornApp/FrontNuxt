@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { AgGridVue } from 'ag-grid-vue3';
+import { ModuleRegistry, ClientSideRowModelModule } from 'ag-grid-community';
+import type { ColDef } from 'ag-grid-community';
+import type { ApiResponse } from '~/types/responses/api-response';
+ModuleRegistry.registerModules([ClientSideRowModelModule]);
 defineExpose({});
 
 const props = defineProps<{
   columnDefs: ColDef[];
   dataEndpoint: string;
 }>();
-
-// Rejestracja komponentu
-// const components = { AgGridVue };
 
 const rowData = ref<unknown[]>([]);
 const defaultColDef = {
@@ -30,6 +31,7 @@ onMounted(async () => {
   }
 });
 </script>
+
 
 <template>
   <ag-grid-vue class="unicorn-custom-ag-theme ag-theme-alpine" :column-defs="props.columnDefs" :row-data="rowData"

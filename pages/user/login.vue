@@ -13,16 +13,12 @@ const processLogin = async () => {
   const form = document.getElementById('page-user-login-form') as HTMLFormElement;
   form.reportValidity()
 
-  // if (res.success) {
   const { login } = useAuth()
   const res = await login(loginData.value)
-
 
   if (res) {
     navigateTo('/')
   }
-
-  // }
   return null;
 };
 </script>

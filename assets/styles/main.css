@@ -73,3 +73,11 @@ a>*:hover {
 .cr-pointer {
   cursor: pointer;
 }
+
+.accent-shadow {
+
+  -webkit-box-shadow: -20px 8px 24px 1px var(--c-accent);
+  -moz-box-shadow: -20px 8px 24px 1px var(--c-accent);
+  box-shadow: -20px 8px 24px 1px var(--c-accent);
+
+}

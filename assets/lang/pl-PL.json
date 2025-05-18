@@ -39,5 +39,8 @@
   "VISITS": "Wizyty",
   "HOME": "Strona główna",
   "PETS": "Zwierzaki",
-  "ACCOUNT": "Konto"
+  "ACCOUNT": "Konto",
+  "PET_CREATE": "Dodaj zwierzaka",
+  "PET": "Zwierzak",
+  "CREATE_VISIT": "Dodaj wizytę"
 }

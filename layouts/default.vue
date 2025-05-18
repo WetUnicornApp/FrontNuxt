@@ -44,7 +44,7 @@ const listItem = [{
 
 <template>
   <div id="layout-default-main" class="d-flex">
-    <div class="h-100 bg-2 p-2 d-flex flex-column justify-content-between">
+    <div class="h-100 bg-2 p-2 d-flex flex-column justify-content-between accent-shadow">
       <div class="">
         <div v-for="item in topList" :key="item.index">
           <nuxt-link :to="item.path" active-class="active-link">

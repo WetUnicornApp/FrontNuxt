@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { InputType } from "@/types/inputs/input";
+import type { InputType } from "~/types/forms/input";
 const props = defineProps<InputType>();
 const emit = defineEmits(["update:modelValue"]);
 

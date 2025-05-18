@@ -24,6 +24,6 @@ const columnDefs: ColDef[] = [
       </nuxt-link>
     </div>
 
-    <Grid :column-defs="columnDefs" data-endpoint="/visit/list-data" class="bg-2 rounded" />
+    <Grid :column-defs="columnDefs" data-endpoint="/visit/list" class="bg-2 rounded" />
   </div>
 </template>

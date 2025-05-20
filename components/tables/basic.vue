@@ -4,17 +4,42 @@ import { AgGridVue } from 'ag-grid-vue3';
 import { ModuleRegistry, ClientSideRowModelModule } from 'ag-grid-community';
 import type { ColDef } from 'ag-grid-community';
 import type { ApiResponse } from '~/types/responses/api-response';
+import { useI18n } from 'vue-i18n';
+import ActionRud from './cells/action-rud.vue';
+
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 defineExpose({});
 
 const props = defineProps<{
   columnDefs: ColDef[];
   dataEndpoint: string;
+  actionSource?: string | null;
 }>();
 
 const rowData = ref<unknown[]>([]);
 const defaultColDef = {
   flex: 1,
+};
+
+const { t } = useI18n();
+
+const components = {
+  ActionRud
+};
+
+const columns = () => {
+  const defaultColumns = [...props.columnDefs];
+  if (typeof props.actionSource === 'string') {
+    defaultColumns.push({
+      headerName: t('OPERATIONS'),
+      field: 'actions',
+      cellRenderer: 'ActionRud',
+      cellRendererParams: {
+        actionSource: props.actionSource
+      }
+    });
+  }
+  return defaultColumns;
 };
 
 const config = useRuntimeConfig();
@@ -32,10 +57,9 @@ onMounted(async () => {
 });
 </script>
 
-
 <template>
-  <ag-grid-vue class="unicorn-custom-ag-theme ag-theme-alpine" :column-defs="props.columnDefs" :row-data="rowData"
-    :default-col-def="defaultColDef" style="width: 100%; height: 90vh" />
+  <ag-grid-vue class="unicorn-custom-ag-theme ag-theme-alpine" :column-defs="columns()" :row-data="rowData"
+    :default-col-def="defaultColDef" :components="components" style="width: 100%; height: 90vh" />
 </template>
 
 <style>

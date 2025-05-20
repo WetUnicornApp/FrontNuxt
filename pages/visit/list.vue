@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import Grid from "@/components/tables/basic.vue";
 import type { ColDef } from "ag-grid-community";
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const columnDefs: ColDef[] = [
-  { field: "employee", headerName: "employee" },
-  { field: "owner", headerName: "owner" },
-  { field: "pet", headerName: "pet" },
-  { field: "name", headerName: "name" },
-  { field: "description", headerName: "description" },
-  { field: "date", headerName: "date" },
-  { field: "time", headerName: "time" },
+  { field: "employee", headerName: t("EMPLOYEE") },
+  { field: "owner", headerName: t("OWNER") },
+  { field: "pet", headerName: t("PET") },
+  { field: "name", headerName: t("NAME") },
+  { field: "description", headerName: t("DESCRIPTION") },
+  { field: "date", headerName: t("DATE") },
+  { field: "time", headerName: t("HOUR") },
 ];
 </script>
 
@@ -24,6 +26,6 @@ const columnDefs: ColDef[] = [
       </nuxt-link>
     </div>
 
-    <Grid :column-defs="columnDefs" data-endpoint="/visit/list" class="bg-2 rounded" />
+    <Grid :column-defs="columnDefs" data-endpoint="/visit/list" class="bg-2 rounded" action-source="/visit/" />
   </div>
 </template>

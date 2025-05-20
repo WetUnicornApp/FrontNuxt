@@ -68,7 +68,7 @@ const listItem = [{
         <DropdownsWithIcon title="SETTING" :list_item="listItem" icon="material-symbols:settings-heart" />
       </div>
     </div>
-    <div class="flex-fill h-100">
+    <div class="flex-fill h-100 overflow-scroll">
       <slot />
     </div>
   </div>

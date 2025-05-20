@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <script setup lang="ts">
 import { getData } from '~/scripts/api/fetch';
 import type { SelectType } from '~/types/forms/select';
@@ -27,11 +28,12 @@ const updateValue = (event: Event) => {
             {{ $t(props.label) }}
         </label>
 
-        <div class="d-flex" v-if="props.icon">
+        <div v-if="props.icon" class="d-flex">
             <div class="fs-4 bg-1 border-0 p-2 rounded-start-2">
                 <Icon :name="props.icon" class="my-auto h-100 me-2" />
             </div>
-            <BFormSelect :id="props.name" class="fs-4 bg-1 border-0 rounded-end-2 rounded-start-0 fs-6"
+            <BFormSelect :id="props.name" :aria-label="props.name" :placeholder="props.placeholder"
+                :required="props.required ?? false" class="fs-4 bg-1 border-0 rounded-end-2 rounded-start-0 fs-6"
                 @change="updateValue">
                 <option v-for="record in list" :key="Object.keys(record)[0]" :value="Object.keys(record)[0]"
                     class="fs-6">
@@ -41,7 +43,8 @@ const updateValue = (event: Event) => {
         </div>
 
         <div v-else>
-            <BFormSelect :id="props.name" class="fs-4 bg-1 border-0 rounded-2 fs-6" @change="updateValue">
+            <BFormSelect :id="props.name" :aria-label="props.name" :placeholder="props.placeholder"
+                :required="props.required ?? false" class="fs-4 bg-1 border-0 rounded-2 fs-6" @change="updateValue">
                 <option v-for="record in list" :key="Object.keys(record)[0]" :value="Object.keys(record)[0]"
                     class="fs-6">
                     {{ Object.values(record)[0] }}

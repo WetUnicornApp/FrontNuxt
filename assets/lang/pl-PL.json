@@ -42,5 +42,14 @@
   "ACCOUNT": "Konto",
   "PET_CREATE": "Dodaj zwierzaka",
   "PET": "Zwierzak",
-  "CREATE_VISIT": "Dodaj wizytę"
+  "CREATE_VISIT": "Dodaj wizytę",
+  "OWNER": "Właściciel",
+  "EMPLOYEE": "Pracownik",
+  "DESCRIPTION": "Opis",
+  "NAME": "Nazwa",
+  "SAVE": "Zapisz",
+  "DATE": "Data",
+  "HOUR": "Godzina",
+  "TIME": "Czas",
+  "OPERATIONS": "Operacje"
 }

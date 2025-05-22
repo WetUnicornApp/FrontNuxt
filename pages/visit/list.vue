@@ -17,15 +17,7 @@ const columnDefs: ColDef[] = [
 
 <template>
   <div class="h-100 p-3 d-flex flex-column">
-    <div class="d-flex justify-content-between m-2">
-      <h3 class="fw-bold">
-        {{ $t('VISITS') }}
-      </h3>
-      <nuxt-link to="/visit/create" active-class="active-link">
-        <Icon name="material-symbols:add-circle-outline" class="icon --btn fs-2 --a-increase" />
-      </nuxt-link>
-    </div>
-
+    <TablesHeader title="VISITS" type="visit" />
     <Grid :column-defs="columnDefs" data-endpoint="/visit/list" class="bg-2 rounded" action-source="/visit/" />
   </div>
 </template>

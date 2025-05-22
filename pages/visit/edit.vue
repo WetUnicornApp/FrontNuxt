@@ -11,6 +11,5 @@ const Visit = ref<VisitModel>(Empty);
 </script>
 
 <template>
-
-  <VisitForm :model="Visit" action="/visit/create" title="CREATE_VISIT" />
+  <VisitForm :model="Visit" action="/visit/edit" title="EDIT_VISIT" />
 </template>

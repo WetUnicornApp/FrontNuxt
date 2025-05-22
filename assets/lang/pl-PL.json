@@ -51,5 +51,7 @@
   "DATE": "Data",
   "HOUR": "Godzina",
   "TIME": "Czas",
-  "OPERATIONS": "Operacje"
+  "OPERATIONS": "Operacje",
+  "EMPLOYEES": "Pracownicy",
+  "OWNERS": "Właściciele"
 }

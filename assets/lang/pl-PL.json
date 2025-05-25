@@ -53,5 +53,9 @@
   "TIME": "Czas",
   "OPERATIONS": "Operacje",
   "EMPLOYEES": "Pracownicy",
-  "OWNERS": "Właściciele"
+  "OWNERS": "Właściciele",
+  "SOMETHING_WENT_WRONG": "Coś poszło nie tak",
+  "SUCCESS": "Sukces",
+  "MISMATCHED_PASSWORDS": "Hasła nie są takie same",
+  "TOO_SHORT_PASSWORD": "Hasło powinno wynosić conajmniej 5 znaków"
 }

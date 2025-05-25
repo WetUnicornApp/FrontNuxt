@@ -1,25 +1,33 @@
 <script setup lang="ts">
 import '@/components/buttons/send';
-import { Empty, type RegisterModel } from '~/models/user-models/register';
-import type { ApiResponse } from '~/types/responses/api-response';
+import { Empty, Validate, type RegisterModel } from '~/models/user-models/register';
+import { getData } from '~/scripts/api/fetch';
 
 definePageMeta({
   layout: "logout",
 });
 
 const Register = ref<RegisterModel>(Empty);
+const isShow = ref(false);
+const message = ref('');
 
-const login = async () => {
+const register = async () => {
   const form = document.getElementById('page-user-register-form') as HTMLFormElement;
-  form.reportValidity()
-  const config = useRuntimeConfig();
-  const res = await $fetch<ApiResponse<RegisterModel>>(config.public.apiBase + '/user/register', {
-    method: 'POST',
-    body: Register.value
-  });
+  if (!form.reportValidity()) {
+    return;
+  }
 
+  const res = await getData<RegisterModel, RegisterModel>({
+    endpoint: '/user/register',
+    method: 'POST',
+    body: Register.value,
+    validate: Validate
+  });
   if (res.success) {
     navigateTo('/user/login')
+  } else {
+    isShow.value = true;
+    message.value = res.message
   }
   return null;
 };
@@ -27,7 +35,6 @@ const login = async () => {
 
 <template>
   <div>
-
     <form id="page-user-register-form" class="bg-2 p-4 rounded-4">
       <div class="my-4">
         <h2 class="text-center">{{ $t("REGISTER") }}</h2>
@@ -44,7 +51,10 @@ const login = async () => {
         <InputsBasic v-model="Register.last_name" type="text" name="last_name" icon="material-symbols:person-2"
           label="LAST_NAME" class="my-3" :required="true" />
       </div>
-      <ButtonsSend :action="login" />
+      <ButtonsSend :action="register" />
+      <div v-if="isShow" class="my-2">
+        <AlertsDanger :key="message" :message="message" />
+      </div>
     </form>
     <div class="d-flex justify-content-end my-2">
       <nuxt-link to="/user/login" class="">{{ $t('LOGIN') }}</nuxt-link>

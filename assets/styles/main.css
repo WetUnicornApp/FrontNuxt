@@ -32,6 +32,18 @@ input {
   background-color: var(--c-accent);
 }
 
+.bg-danger-1 {
+  background-color: var(--c-danger-bg);
+}
+
+.bg-warning-1 {
+  background-color: var(--c-warning-bg);
+}
+
+.bg-success-1 {
+  background-color: var(--c-success-bg);
+}
+
 .icon {
   color: var(--c-text);
 }

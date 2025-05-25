@@ -57,5 +57,7 @@
   "SOMETHING_WENT_WRONG": "Coś poszło nie tak",
   "SUCCESS": "Sukces",
   "MISMATCHED_PASSWORDS": "Hasła nie są takie same",
-  "TOO_SHORT_PASSWORD": "Hasło powinno wynosić conajmniej 5 znaków"
+  "TOO_SHORT_PASSWORD": "Hasło powinno wynosić conajmniej 5 znaków",
+  "USER_NOT_FOUND": "Konto z podanym emailem nie istnieje",
+  "INCORRECT_PASSWORD": "Niepoprawne hasło"
 }

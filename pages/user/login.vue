@@ -8,16 +8,23 @@ definePageMeta({
 });
 
 const loginData = ref<LoginModel>(Empty);
+const isShow = ref(false);
+const message = ref('');
 
 const processLogin = async () => {
   const form = document.getElementById('page-user-login-form') as HTMLFormElement;
-  form.reportValidity()
 
+  if (!form.reportValidity()) {
+    return;
+  }
   const { login } = useAuth()
   const res = await login(loginData.value)
 
-  if (res) {
+  if (res.success) {
     navigateTo('/')
+  } else {
+    isShow.value = true;
+    message.value = res.message
   }
   return null;
 };
@@ -36,6 +43,9 @@ const processLogin = async () => {
           label="PASSWORD" class="my-3" :required="true" />
       </div>
       <ButtonsSend :action="processLogin" />
+      <div v-if="isShow" class="my-2">
+        <AlertsDanger :key="message" :message="message" />
+      </div>
     </form>
     <div class="d-flex justify-content-end my-2">
       <nuxt-link to="/user/register" class="">{{ $t('CREATE_ACCOUNT') }}</nuxt-link>

@@ -1,17 +1,19 @@
 export type PetModel = {
     name: string,
     date_of_birth: string,
-    type_id: number,
+    type_identifier: string,
     type_name: string,
-    gender: string
-    description: string
+    gender: string,
+    description: string,
+    owner_identifier: string
 }
 
 export const Empty: PetModel = {
     name: '',
     date_of_birth: '',
-    type_id: 0,
+    type_identifier: '',
     type_name: '',
     gender: '',
-    description: ''
+    description: '',
+    owner_identifier: ''
 }

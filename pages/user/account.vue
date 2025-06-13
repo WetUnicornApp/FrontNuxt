@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-const method = (params: object) => {
-  console.log(params);
-  return null
-};
+
 const { user } = useAuth();
 </script>
 
@@ -17,7 +14,7 @@ const { user } = useAuth();
       </div>
       <div class="row">
         <div class="col-md-6">
-          <ButtonsWide :title="$t('CHANGE_PASSWORD')" :action="() => method({ type: 'password' })" type="accent" />
+          <ButtonsWide :title="$t('CHANGE_PASSWORD')" action="/user/change-password" type="accent" />
         </div>
       </div>
     </div>

@@ -7,6 +7,10 @@ const method = (event: Event) => {
   if (typeof props.action === "function") {
     props.action();
   }
+  console.log(props.action)
+  if (typeof props.action === 'string') {
+    useRouter().push(props.action)
+  }
 };
 
 const computedClass = `${props.type} p-2 w-100 fw-bold text-start`;
@@ -30,6 +34,7 @@ const computedClass = `${props.type} p-2 w-100 fw-bold text-start`;
   background-color: rgba(0, 0, 0, 0);
   transition: color 0.3 ease-in-out;
 }
+
 .accent:hover {
   color: var(--c-accent);
   border-bottom: 1px solid var(--c-accent);

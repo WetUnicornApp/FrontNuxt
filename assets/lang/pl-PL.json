@@ -68,8 +68,16 @@
   "EDIT": "Edytuj",
   "VIEW": "Szczegóły",
   "DELETE": "Usuń",
+  "REMOVE": "Usuń",
   "EDIT_OWNER": "Edytuj właściciela",
   "REMOVE_ELEMENT": "Usuwanie elementu",
   "REMOVE_ELEMENT_MESSAGE": "Element zostanie bezpowrotnie usunięty!",
-  "AGREE": "Zgadzam się"
+  "AGREE": "Zgadzam się",
+  "DOG": "Pies",
+  "CAT": "Kot",
+  "MALE": "męska",
+  "FEMALE": "żeńska",
+  "CREATE_PET": "Stwórz zwierzaka",
+  "EDIT_PET": "Edytuj zwierzaka",
+  "OTHER": "inne"
 }

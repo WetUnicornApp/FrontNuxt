@@ -7,4 +7,5 @@ export type SelectType = {
     modelValue: string;
     options?: Record<string, string>[];
     endpoint?: string;
+    translate?: boolean
 }

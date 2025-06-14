@@ -6,7 +6,8 @@
   --c-grey-5: #242424b7;
   --c-grey-6: #242424;
 
-  --c-violet-1: #358680;
+  --blue-1: #437ade;
+
   --c-violet-2: #35868015;
 
   --c-danger-1: #b46a6a;
@@ -18,7 +19,7 @@
   --c-success-1: #22664c;
   --c-success-2: #38aa7e;
 
-  --c-grad-1: linear-gradient(to bottom right, #8656f9, #07b96b);
+  --c-grad-1: linear-gradient(to bottom right, #6656f9, #07b9b0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,7 +29,7 @@
     --c-bg-3: var(--c-grey-5);
     --c-bg-4: var(--c-grey-6);
     --c-text: var(--c-grey-3);
-    --c-accent: var(--c-violet-1);
+    --c-accent: var(--blue-1);
     --c-accent-bg: var(--c-violet-2);
     --c-danger-bg: var(--c-danger-2);
     --c-success-bg: var(--c-success-1);
@@ -43,8 +44,8 @@
     --c-bg-3: var(--c-grey-3);
     --c-bg-4: var(--c-grey-6);
     --c-text: var(--c-grey-1);
-    --c-accent: var(--c-violet-1);
-    --c-accent-bg: var(--c-violet-1);
+    --c-accent: var(--blue-1);
+    --c-accent-bg: var(--blue-1);
     --c-danger-bg: var(--c-danger-1);
     --c-success-bg: var(--c-success-2);
     --c-warning-bg: var(--c-warning-2);

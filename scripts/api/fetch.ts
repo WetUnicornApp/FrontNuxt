@@ -3,7 +3,7 @@ import type { ApiResponse } from "~/types/responses/api-response";
 
 export type FetchData<TBody> = {
     endpoint: string;
-    method: 'POST' | 'GET';
+    method: 'POST' | 'GET' | 'PUT' | 'DELETE';
     body?: TBody;
     validate?: (item: TBody) => Communicate;
 };
@@ -16,7 +16,6 @@ export async function getData<
 ): Promise<ApiResponse<TResult>> {
     const config = useRuntimeConfig();
 
-    // lokalna walidacja
     if (typeof data.validate === 'function') {
         const check = data.validate(data.body as TBody);
         if (!check.success) {

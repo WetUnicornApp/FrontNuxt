@@ -2,17 +2,37 @@
 import { reactive } from 'vue';
 import { ButtonsSave } from '#components';
 import '@/components/buttons/send';
-import type { VisitModel } from '~/models/visit-models/visit';
+import { Validate, type OwnerModel } from '~/models/owner-models/owner';
+import { getData } from '~/scripts/api/fetch';
 
 const props = defineProps<{
-    model: VisitModel;
+    model: OwnerModel;
     action: string;
-    title: string
+    title: string;
 }>();
 
+const isShow = ref(false);
+const message = ref('');
+
 const localModel = reactive({ ...props.model });
-const saveVisit = () => {
-    console.log('z form visit')
+const saveVisit = async () => {
+    const form = document.getElementById('component-owner-form-form') as HTMLFormElement;
+    if (!form.reportValidity()) {
+        return;
+    }
+
+    const res = await getData<OwnerModel, OwnerModel>({
+        endpoint: props.action,
+        method: localModel.id == 0 ? 'POST' : 'PUT',
+        body: localModel,
+        validate: Validate
+    });
+    if (res.success) {
+        navigateTo('/owner/list')
+    } else {
+        isShow.value = true;
+        message.value = res.message
+    }
     return null;
 };
 
@@ -22,50 +42,28 @@ const saveVisit = () => {
 
 <template>
     <div>
-        <form id="page-user-register-form">
+        <form id="component-owner-form-form">
             <div class="my-2">
                 <h2 class="text-center">{{ $t(props.title) }}</h2>
             </div>
 
             <div class="m-3">
-                <SelectsBasic v-model="localModel.pet" :name="$t('PET')" :placeholder="$t('PET')"
-                    icon="material-symbols:pet-supplies" :label="$t('PET')" :required="true"
-                    endpoint="/pet/list?simple=1" />
+                <InputsBasic v-model="localModel.email" name="email" :placeholder="$t('EMAIL')"
+                    icon="material-symbols:alternate-email-rounded" type="email" :label="$t('EMAIL')" />
             </div>
 
             <div class="m-3">
-                <SelectsBasic v-model="localModel.owner" name="owner" :placeholder="$t('OWNER')"
-                    icon="material-symbols:person-rounded" :label="$t('OWNER')" :required="true"
-                    endpoint="/pet/list?simple=1" />
+                <InputsBasic v-model="localModel.first_name" name="first_name" :placeholder="$t('FIRST_NAME')"
+                    icon="material-symbols:account-circle" type="text" :label="$t('FIRST_NAME')" />
             </div>
 
             <div class="m-3">
-                <SelectsBasic v-model="localModel.employee" name="employee" :placeholder="$t('EMPLOYEE')"
-                    icon="fa6-solid:user-doctor" :label="$t('EMPLOYEE')" :required="true"
-                    endpoint="/pet/list?simple=1" />
+                <InputsBasic v-model="localModel.last_name" name="time" :placeholder="$t('LAST_NAME')"
+                    icon="material-symbols:account-circle" type="text" :label="$t('LAST_NAME')" />
             </div>
-
-            <div class="m-3">
-                <InputsBasic v-model="localModel.date" name="date" :placeholder="$t('DATE')"
-                    icon="material-symbols:edit-calendar-sharp" type="date" :label="$t('DATE')" />
+            <div v-if="isShow" class="my-2">
+                <AlertsDanger :key="message" :message="message" />
             </div>
-
-            <div class="m-3">
-                <InputsBasic v-model="localModel.time" name="time" :placeholder="$t('HOUR')"
-                    icon="material-symbols:nest-clock-farsight-analog-outline-rounded" type="time"
-                    :label="$t('HOUR')" />
-            </div>
-
-            <div class="m-3">
-                <InputsBasic v-model="localModel.name" name="NAME" :placeholder="$t('NAME')"
-                    icon="ic:outline-short-text" type="text" :label="$t('NAME')" />
-            </div>
-
-            <div class="m-3">
-                <TextareasBasic v-model="localModel.description" name="description" :placeholder="$t('DESCRIPTION')"
-                    icon="fluent:text-description-16-filled" :label="$t('DESCRIPTION')" :required="true" />
-            </div>
-
             <ButtonsSave :action="saveVisit" />
         </form>
     </div>

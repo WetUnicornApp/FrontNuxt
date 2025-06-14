@@ -41,6 +41,18 @@ const computedClass = `${props.type} rounded border-0 px-3 py-2 fw-bold --a-incr
   color: var(--c-text);
 }
 
+.danger{
+
+}
+
+.warning{
+
+}
+
+.secondary{
+  
+}
+
 .spinner-icon {
   display: inline-block;
   width: 1em;

@@ -1,23 +1,28 @@
 <script setup lang="ts">
-const props = defineProps<{ params: unknown }>();
-const source = props.params.actionSource
-console.log(props)
+
+const props = defineProps<{
+    params: {
+        actionSource: string;
+        data: { id: number };
+        onDeleted?: () => void;
+    };
+}>();
+
+const source = props.params.actionSource;
+const id = props.params.data.id;
+
+const handleDeleted = () => {
+    if (props.params.onDeleted) {
+        props.params.onDeleted();
+    }
+};
 </script>
 
-
 <template>
-    <div class="actions d-flex my-auto h-100">
-        <nuxt-link :to="source + 'edit'" class="my-auto h-100">
-            <Icon name="material-symbols:edit-square-outline" class="icon --btn fs-3 mx-1 --a-increase my-auto h-100"
-                :title="$t('EDIT')" />
-        </nuxt-link>
-        <Icon name="material-symbols:delete-rounded" class="icon --btn fs-3 mx-1 --a-increase my-auto "
-            :title="$t('REMOVE')" />
-        <nuxt-link :to="source + 'view'" class="my-auto h-100">
-            <Icon name="material-symbols-light:eye-tracking-rounded"
-                class="icon --btn fs-3 mx-1 --a-increase my-auto h-100" :title="$t('VIEW')" />
-        </nuxt-link>
-
+    <div class="actions d-flex my-auto h-100 justify-content-end">
+        <ButtonsView :action="source + 'view/' + id" />
+        <ButtonsRemove :action="source + 'delete/' + id" :redirect="source + 'list'" @deleted="handleDeleted" />
+        <ButtonsEdit :action="source + 'edit/' + id" />
     </div>
 </template>
 

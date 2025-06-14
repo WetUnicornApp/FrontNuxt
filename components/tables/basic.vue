@@ -8,7 +8,6 @@ import { useI18n } from 'vue-i18n';
 import ActionRud from './cells/action-rud.vue';
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
-defineExpose({});
 
 const props = defineProps<{
   columnDefs: ColDef[];
@@ -17,34 +16,11 @@ const props = defineProps<{
 }>();
 
 const rowData = ref<unknown[]>([]);
-const defaultColDef = {
-  flex: 1,
-};
-
+const defaultColDef = { flex: 1 };
 const { t } = useI18n();
-
-const components = {
-  ActionRud
-};
-
-const columns = () => {
-  const defaultColumns = [...props.columnDefs];
-  if (typeof props.actionSource === 'string') {
-    defaultColumns.push({
-      headerName: t('OPERATIONS'),
-      field: 'actions',
-      cellRenderer: 'ActionRud',
-      cellRendererParams: {
-        actionSource: props.actionSource
-      }
-    });
-  }
-  return defaultColumns;
-};
-
 const config = useRuntimeConfig();
 
-onMounted(async () => {
+const fetchData = async () => {
   try {
     const res = await $fetch<ApiResponse<unknown>>(config.public.apiBase + props.dataEndpoint, {
       method: 'GET',
@@ -54,15 +30,42 @@ onMounted(async () => {
     console.error(error);
     rowData.value = [];
   }
-});
+};
+
+onMounted(fetchData);
+defineExpose({ refresh: fetchData });
+
+const components = { ActionRud };
+
+const columns = () => {
+  const defaultColumns = [...props.columnDefs];
+  if (typeof props.actionSource === 'string') {
+    defaultColumns.push({
+      headerName: t('OPERATIONS'),
+      field: 'actions',
+      cellRenderer: 'ActionRud',
+      cellRendererParams: {
+        actionSource: props.actionSource,
+        onDeleted: fetchData
+      }
+    });
+  }
+  return defaultColumns;
+};
 </script>
 
 <template>
-  <ag-grid-vue class="unicorn-custom-ag-theme ag-theme-alpine" :column-defs="columns()" :row-data="rowData"
-    :default-col-def="defaultColDef" :components="components" style="width: 100%; height: 90vh" />
+  <ag-grid-vue
+    class="unicorn-custom-ag-theme ag-theme-alpine"
+    :column-defs="columns()"
+    :row-data="rowData"
+    :default-col-def="defaultColDef"
+    :components="components"
+    style="width: 100%; height: 90vh"
+  />
 </template>
 
-<style>
+<style >
 .ag-root-wrapper,
 .unicorn-custom-ag-theme .ag-header,
 .unicorn-custom-ag-theme .ag-row {

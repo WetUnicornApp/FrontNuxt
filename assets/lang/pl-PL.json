@@ -59,5 +59,17 @@
   "MISMATCHED_PASSWORDS": "Hasła nie są takie same",
   "TOO_SHORT_PASSWORD": "Hasło powinno wynosić conajmniej 5 znaków",
   "USER_NOT_FOUND": "Konto z podanym emailem nie istnieje",
-  "INCORRECT_PASSWORD": "Niepoprawne hasło"
+  "INCORRECT_PASSWORD": "Niepoprawne hasło",
+  "CREATE_OWNER": "Stwórz właściciela",
+  "FIRST_NAME_HAS_INCORRECT_LENGTH": "Niepoprawne imię",
+  "LAST_NAME_HAS_INCORRECT_LENGTH": "Niepoprawne nazwisko",
+  "INCORRECT_EMAIL": "Niepoprawny email",
+  "EMAIL_IS_REQUIRED": "Email jest wymagany",
+  "EDIT": "Edytuj",
+  "VIEW": "Szczegóły",
+  "DELETE": "Usuń",
+  "EDIT_OWNER": "Edytuj właściciela",
+  "REMOVE_ELEMENT": "Usuwanie elementu",
+  "REMOVE_ELEMENT_MESSAGE": "Element zostanie bezpowrotnie usunięty!",
+  "AGREE": "Zgadzam się"
 }

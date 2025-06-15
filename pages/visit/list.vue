@@ -5,11 +5,11 @@ import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 const columnDefs: ColDef[] = [
-  { field: "employee", headerName: t("EMPLOYEE") },
-  { field: "owner", headerName: t("OWNER") },
-  { field: "pet", headerName: t("PET") },
-  { field: "name", headerName: t("NAME") },
-  { field: "description", headerName: t("DESCRIPTION") },
+  { field: "employee_name", headerName: t("EMPLOYEE") },
+  { field: "owner_name", headerName: t("OWNER") },
+  { field: "pat_name", headerName: t("PET") },
+  { field: "visit_name", headerName: t("NAME") },
+  { field: "visit_description", headerName: t("DESCRIPTION") },
   { field: "date", headerName: t("DATE") },
   { field: "time", headerName: t("HOUR") },
 ];

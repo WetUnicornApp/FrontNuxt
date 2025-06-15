@@ -87,5 +87,8 @@
   "EDIT_ORGANIZATION": "Edytuj organizację",
   "ADDRESS": "Adres",
   "NAME_HAS_INCORRECT_LENGTH": "Nazwa ma niepoprawną długość",
-  "EDIT_EMPLOYEE": "Edytuj pracownika"
+  "EDIT_EMPLOYEE": "Edytuj pracownika",
+  "EMPLOYEE_IS_OCCURRED": "Pracownik jest zajęty",
+  "VISIT": "Wizyta",
+  "EDIT_VISIT": "Edytuj wizytę"
 }

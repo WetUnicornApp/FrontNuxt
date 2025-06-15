@@ -3,8 +3,7 @@ import { reactive } from 'vue';
 import { ButtonsSave } from '#components';
 import '@/components/buttons/send';
 import { getData } from '~/scripts/api/fetch';
-import type EmployeeModel from '../../models/employee-models/employee';
-import { Validate } from '../../models/employee-models/employee';
+import { type EmployeeModel, Validate } from '../../models/employee-models/employee';
 
 const props = defineProps<{
     model: EmployeeModel;
@@ -49,6 +48,12 @@ const ave = async () => {
             </div>
 
             <div class="m-3">
+                <SelectsBasic v-model="model.organization_id" name="organization_id" :placeholder="$t('ORGANIZATION')"
+                    icon="octicon:organization-16" :label="$t('ORGANIZATION')" :required="true"
+                    endpoint="/organization/list?s=1" />
+            </div>
+
+            <div class="m-3">
                 <InputsBasic v-model="model.email" name="email" :placeholder="$t('EMAIL')"
                     icon="material-symbols:alternate-email-rounded" type="email" :label="$t('EMAIL')" />
             </div>
@@ -62,6 +67,8 @@ const ave = async () => {
                 <InputsBasic v-model="model.last_name" name="time" :placeholder="$t('LAST_NAME')"
                     icon="material-symbols:account-circle" type="text" :label="$t('LAST_NAME')" />
             </div>
+
+
             <div v-if="isShow" class="my-2">
                 <AlertsDanger :key="message" :message="message" />
             </div>

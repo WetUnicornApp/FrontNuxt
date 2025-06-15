@@ -80,5 +80,12 @@
   "CREATE_PET": "Stwórz zwierzaka",
   "EDIT_PET": "Edytuj zwierzaka",
   "OTHER": "inne",
-  "CREATE_EMPLOYEE": "Stwórz pracownika"
+  "CREATE_EMPLOYEE": "Stwórz pracownika",
+  "ORGANIZATION": "Organizacja",
+  "ORGANIZATION_NAME": "Organizacja",
+  "CREATE_ORGANIZATION": "Stwórz organizację",
+  "EDIT_ORGANIZATION": "Edytuj organizację",
+  "ADDRESS": "Adres",
+  "NAME_HAS_INCORRECT_LENGTH": "Nazwa ma niepoprawną długość",
+  "EDIT_EMPLOYEE": "Edytuj pracownika"
 }

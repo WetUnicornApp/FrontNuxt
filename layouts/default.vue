@@ -11,7 +11,7 @@ const midList = [
   { index: 1, path: "/pet/list", icon: "material-symbols:pets", name: "PETS" },
   { index: 2, path: '/employee/list', icon: "fa6-solid:user-doctor", name: 'EMPLOYEES' },
   { index: 3, path: '/owner/list', icon: "ic:sharp-people-alt", name: 'OWNERS' },
-  { index: 4, path: '/organization/list', icon: "fa6-solid:user-doctor", name: 'ORGANIZATIONS' },
+  { index: 4, path: '/organization/list', icon: "octicon:organization-16", name: 'ORGANIZATIONS' },
 
 ];
 

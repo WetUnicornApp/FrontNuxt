@@ -79,5 +79,6 @@
   "FEMALE": "żeńska",
   "CREATE_PET": "Stwórz zwierzaka",
   "EDIT_PET": "Edytuj zwierzaka",
-  "OTHER": "inne"
+  "OTHER": "inne",
+  "CREATE_EMPLOYEE": "Stwórz pracownika"
 }

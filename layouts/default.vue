@@ -9,8 +9,9 @@ const topList = [
 const midList = [
   { index: 0, path: "/visit/list", icon: "material-symbols:calendar-clock-rounded", name: "VISITS", },
   { index: 1, path: "/pet/list", icon: "material-symbols:pets", name: "PETS" },
-  { index: 3, path: '/owner/list', icon: "ic:sharp-people-alt", name: 'OWNERS' },
   { index: 2, path: '/employee/list', icon: "fa6-solid:user-doctor", name: 'EMPLOYEES' },
+  { index: 3, path: '/owner/list', icon: "ic:sharp-people-alt", name: 'OWNERS' },
+  { index: 4, path: '/organization/list', icon: "fa6-solid:user-doctor", name: 'ORGANIZATIONS' },
 
 ];
 

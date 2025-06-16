@@ -58,7 +58,7 @@
   "SUCCESS": "Sukces",
   "MISMATCHED_PASSWORDS": "Hasła nie są takie same",
   "TOO_SHORT_PASSWORD": "Hasło powinno wynosić conajmniej 5 znaków",
-  "USER_NOT_FOUND": "Konto z podanym emailem nie istnieje",
+  "USER_NOT_FOUND": "Nieznaleziono użytkownika",
   "INCORRECT_PASSWORD": "Niepoprawne hasło",
   "CREATE_OWNER": "Stwórz właściciela",
   "FIRST_NAME_HAS_INCORRECT_LENGTH": "Niepoprawne imię",
@@ -90,5 +90,13 @@
   "EDIT_EMPLOYEE": "Edytuj pracownika",
   "EMPLOYEE_IS_OCCURRED": "Pracownik jest zajęty",
   "VISIT": "Wizyta",
-  "EDIT_VISIT": "Edytuj wizytę"
+  "EDIT_VISIT": "Edytuj wizytę",
+  "MISSING_UPPERCASE_LETTER": "Brakuje conajmniej jednej dużej litery w haśle",
+  "MISSING_NUMBER": "Brakuje conajmniej jednej cyfry w haśle",
+  "MISSING_SPECIAL_CHARACTER": "Brakuje conajmniej jednego znaku specjalnego",
+  "EMAIL_ALREADY_REGISTER": "Email jest niedostępny",
+  "ADDRESS_HAS_INCORRECT_LENGTH": "Nieporawna długość adresu",
+  "EMAIL_IS_OCCURRED": "Email jest niedostępny",
+  "DATE_OF_BIRTH_IS_REQUIRED": "Data urodzenia jest wymagana",
+  "TYPE": "Typ"
 }

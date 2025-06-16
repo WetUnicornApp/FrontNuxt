@@ -45,7 +45,7 @@ const obj = computed(() => {
 
             <div v-for="(val, label) in obj" :key="val" class="d-flex flex-wrap">
                 <p class="mx-1">{{ $t(label) }}:</p>
-                <p class="mx-1 fw-bold">{{ val }}</p>
+                <p class="mx-1 fw-bold">{{ $t(val) }}</p>
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@ const computedClass = `${props.type} rounded border-0 px-3 py-2 fw-bold --a-incr
 
 <template>
   <div>
-    <button :class="computedClass" :disabled="isLoading" @click="method">
+    <button id="component-button-basic" :class="computedClass" :disabled="isLoading" @click="method">
       <span v-if="isLoading" class="spinner-icon me-2" />
       <span>{{ $t(title) }}</span>
     </button>
@@ -41,17 +41,11 @@ const computedClass = `${props.type} rounded border-0 px-3 py-2 fw-bold --a-incr
   color: var(--c-text);
 }
 
-.danger{
+.danger {}
 
-}
+.warning {}
 
-.warning{
-
-}
-
-.secondary{
-  
-}
+.secondary {}
 
 .spinner-icon {
   display: inline-block;

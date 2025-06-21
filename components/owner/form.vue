@@ -58,7 +58,7 @@ const saveVisit = async () => {
             </div>
 
             <div class="m-3">
-                <InputsBasic v-model="localModel.last_name" name="time" :placeholder="$t('LAST_NAME')"
+                <InputsBasic v-model="localModel.last_name" name="last_name" :placeholder="$t('LAST_NAME')"
                     icon="material-symbols:account-circle" type="text" :label="$t('LAST_NAME')" />
             </div>
             <div v-if="isShow" class="my-2">

@@ -23,7 +23,7 @@ export const Empty: PetModel = {
 
 export function Validate(item: PetModel): Communicate {
 
-    if (item.name.length > 20 || item.name.length < 1) {
+    if (item.name.length > 100 || item.name.length < 1) {
         return { success: false, message: 'FIRST_NAME_HAS_INCORRECT_LENGTH' };
     }
 

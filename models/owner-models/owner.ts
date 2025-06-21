@@ -19,10 +19,10 @@ export const Empty: OwnerModel = {
 }
 
 export function Validate(item: OwnerModel): Communicate {
-    if (item.first_name.length > 20 || item.first_name.length < 1) {
+    if (item.first_name.length > 100 || item.first_name.length < 1) {
         return { success: false, message: 'FIRST_NAME_HAS_INCORRECT_LENGTH' };
     }
-    if (item.last_name.length > 20 || item.last_name.length < 1) {
+    if (item.last_name.length > 100 || item.last_name.length < 1) {
         return { success: false, message: 'LAST_NAME_HAS_INCORRECT_LENGTH' };
     }
     return ValidateOnlyEmail(item.email);

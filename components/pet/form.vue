@@ -72,7 +72,7 @@ const save = async () => {
             </div>
 
             <div class="m-3">
-                <InputsBasic v-model="model.name" name="NAME" :placeholder="$t('NAME')" icon="ic:outline-short-text"
+                <InputsBasic v-model="model.name" name="name" :placeholder="$t('NAME')" icon="ic:outline-short-text"
                     type="text" :label="$t('NAME')" />
             </div>
 

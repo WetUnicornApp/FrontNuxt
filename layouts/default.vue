@@ -32,6 +32,12 @@ const listItem = [{
   }
 }
 ];
+onMounted(async () => {
+  await nextTick();
+  setTimeout(() => {
+    (window as any).__TEST_READY__ = true;
+  }, 300);
+});
 
 </script>
 
